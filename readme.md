@@ -1,4 +1,4 @@
-# Hackathon Project Game Forum
+# Hackathon Project Game-Forum
 
 # About
 
