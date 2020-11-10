@@ -21,7 +21,8 @@
     "helmet": "^3.21.2",
     "lightpath": "0.0.5",
     "mongoose": "^5.8.0",
-    "socket.io": "^2.3.0"
+    "socket.io": "^2.3.0",
+    "sweetalert2": "^10.9.1"
   },
   "engines": {
     "node": "^12.0.0",
