@@ -13,19 +13,13 @@
   <title>game-forum</title>
 </head>
 
-<!-- Hey guys, sam here. Slack notifications automatically disable at 9pm, so I just thought I'd let you guys know that I found a bug. Users upvotes do not save unless they are the account that created the post. -->
-
 <body>
-
-
   <header class="container-fluid">
     <div class="row">
       <nav class="col navbar navbar-expand bg-darkblue text-swhite d-flex justify-content-between">
         <a class="navbar-brand" href="#">
           <img src="assets/img/FinalBanner2.png" width="510" height="100" alt="" loading="lazy">
         </a>
-
-
         <div>
           <button onclick="app.postsController.filterCategorys('raid')" class="btn-lg btn-darkblue stext">Raid</button>
           <button onclick="app.postsController.filterCategorys('dngn')"
@@ -36,53 +30,12 @@
           <button onclick="app.postsController.filterCategorys('farm')" class="btn-lg btn-darkblue stext">Farm</button>
           <button onclick="app.postsController.filterCategorys('lore')" class="btn-lg btn-darkblue stext">Lore</button>
           <button onclick="app.postsController.filterCategorys('misc')" class="btn-lg btn-darkblue stext">Misc</button>
+          <button onclick="app.postsController.filterCategorys('')" class="btn-lg btn-darkblue stext">All</button>
         </div>
-
         <div class="justify-content-end align-items-center d-flex" id="authstate"></div>
       </nav>
     </div>
   </header>
-
-
-  <!-- <div class="card bg-swhite shadow m-3">
-
-    <div class="card-header d-flex flex-direction-column justify-content-between">
-      <div>
-        <h3>${this.title}</h3>
-        <h6 class="font-italic">${this.creatorEmail}</h6>
-      </div>
-      <div class="align-self-center">
-        <h4 class="">${this.upvote.length} <i class="fa fa-arrow-up"
-            onclick="app.postsController.vote(true,'${this._id}')"></i>
-          ${this.downvote.length} <i class="fa fa-arrow-down"
-            onclick="app.postsController.vote(false,'${this._id}')"></i></h4>
-      </div>
-    </div>
-    <div class="card-body">
-      <img class="justify-self-center d-flex" src="${this.img}" alt="" style="">
-      <p class="card-text">${this.body}</p>
-      <button type="button" class="btn btn-syellow stext" onclick="app.postsController.deletePost('${this._id}')">Delete
-        Post <i class="fa fa-minus-circle"></i> </button>
-      <form class="form-inline my-1" onsubmit="app.commentsController.addComment(event)">
-        <div class="form-group">
-          <input type="text" name="comment" id="comment" class="ml-1 form-control" placeholder="Leave comment..."
-            aria-describedby="helpId">
-        </div>
-        <button type="submit" class="btn btn-blue form-control ml-2 stext"><i class="fa fa-plus-circle"></i> New
-          Comment</button>
-      </form>
-      <div>
-        <div class="">
-          <button class="btn btn-blue stext" onclick="app.commentsController.sortByDownvote()" style="width: 15%">Comment
-            Sort</button>
-        </div>
-        <ul id="comments">
-        </ul>
-      </div>
-    </div>
-  </div> -->
-
-
   <main class="container-fluid">
     <div class="row">
       <div class="col-4 bg-swhite">
@@ -94,8 +47,6 @@
           <ul class="col-12 list-group text-wrap scrollbox" id="postList">
           </ul>
         </div>
-
-
       </div>
       <div class="col-8">
         <div class="col-8 offset-2">
@@ -122,7 +73,6 @@
               <button type="submit" class="btn btn-blue form float-right stext">Submit!</button>
             </form>
           </div>
-
         </div>
         <div class="scrollbox-small" id="activePost"></div>
       </div>
@@ -156,7 +106,6 @@
       </div>
     </div>
   </footer>
-
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="https://cdn.auth0.com/js/auth0-spa-js/1.11/auth0-spa-js.production.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/jakeoverall/auth0provider-client/browser/AuthProvider.browser.js"></script>

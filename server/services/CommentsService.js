@@ -6,12 +6,9 @@ class CommentsService {
     let comments = await dbContext.Comment.find(query).populate("creator", "name picture").populate("post", "title")
     return comments
   }
-
-
   async create(body) {
     return await dbContext.Comment.create(body)
   }
-
   async edit(body) {
     let update = dbContext.Comment.findOneAndUpdate({ _id: body.id }, body, { new: true })
     if (!update) {
@@ -19,7 +16,6 @@ class CommentsService {
     }
     return update
   }
-
   async delete(id) {
     let success = await dbContext.Comment.findByIdAndDelete(id)
     if (!success) {
@@ -27,5 +23,4 @@ class CommentsService {
     }
   }
 }
-
 export const commentsService = new CommentsService()

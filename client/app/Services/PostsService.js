@@ -29,14 +29,11 @@ class PostsService {
         await api.put(`api/posts/${id}`, found)
       }
     }
-    console.log(found)
     ProxyState.posts = ProxyState.posts
     ProxyState.activePost = ProxyState.activePost
   }
   async deletePost(id) {
-    console.log(id);
     let res = await api.delete(`api/posts/${id}`)
-    console.log(res)
     ProxyState.activePost = null
     ProxyState.comments = []
     let found = ProxyState.posts.findIndex(p => p._id == id)
@@ -71,11 +68,13 @@ class PostsService {
     ProxyState.posts = ProxyState.posts
   }
   filterCategorys(category) {
-    let active = ProxyState.posts.find(p => p.category == category)
-    if (active.display) {
-      active.display = false
-    } else active.display = true
-    ProxyState.posts = ProxyState.posts
+    if (!category) {
+      ProxyState.posts.forEach(p => p.display = true)
+      ProxyState.posts = ProxyState.posts
+    } else {
+      ProxyState.posts.filter(p => p.category == category ? p.display = true : p.display = false)
+      ProxyState.posts = ProxyState.posts
+    }
   }
 }
 

@@ -10709,10 +10709,12 @@ main {
 
 .fa.fa-arrow-down{
   color: var(--syellow);
+  cursor: pointer;
 }
 
  .fa.fa-arrow-up{
   color: var(--blue);
+  cursor: pointer;;
 }
 
 .scrollbox {

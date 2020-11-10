@@ -38,7 +38,6 @@ export default class PostsController {
     event.preventDefault()
     let e = event.target
     let rawPost = { title: e.title.value, body: e.body.value, img: e.imgUrl.value, category: e.category.value }
-
     try {
       postsService.addPost(rawPost)
     } catch (error) {
@@ -48,7 +47,6 @@ export default class PostsController {
   }
 
   setPost(id) {
-
     postsService.setPost(id)
   }
 
@@ -75,7 +73,7 @@ export default class PostsController {
     try {
       postsService.vote(bool, id)
     } catch (error) {
-
+      console.error(error);
     }
   }
 

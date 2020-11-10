@@ -17,7 +17,6 @@ export default class CommentsController {
     AuthService.on(AuthService.AUTH_EVENTS.AUTHENTICATED, () => {
       ProxyState.on("comments", _draw);
       // ProxyState.on("activePost", _draw)
-      console.log(ProxyState.comments)
     })
   }
 
@@ -73,7 +72,7 @@ export default class CommentsController {
     try {
       commentsService.vote(bool, cId)
     } catch (error) {
-
+      console.error(error)
     }
   }
 }

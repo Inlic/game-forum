@@ -28,13 +28,10 @@ class CommentsService {
         await api.put(`api/comments/${cId}`, found)
       }
     }
-    console.log(found)
     ProxyState.comments = ProxyState.comments
   }
   async deleteComment(id) {
-    console.log(id);
     let res = await api.delete(`api/comments/${id}`)
-    console.log(res)
     this.getComments()
   }
 
@@ -53,7 +50,6 @@ class CommentsService {
   async sortByUpvote() {
     await ProxyState.comments.sort((a, b) => ((a.upvote.length - a.downvote.length) > (b.upvote.length - b.downvote.length)) ? -1 : 1)
     ProxyState.comments = ProxyState.comments
-    console.log(ProxyState.comments)
   }
 
   async sortByDownvote() {

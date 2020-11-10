@@ -6,7 +6,6 @@ class PostsService {
     let posts = await dbContext.Posts.find(query).populate("creator", "name picture")
     return posts
   }
-
   async findById(id) {
     let post = await dbContext.Posts.findById(id)
     if (!post) {
@@ -14,11 +13,9 @@ class PostsService {
     }
     return post
   }
-
   async create(body) {
     return await dbContext.Posts.create(body)
   }
-
   async edit(body) {
     let update = dbContext.Posts.findOneAndUpdate({ _id: body.id, creatorEmail: body.creatorEmail }, body, { new: true })
     if (!update) {
@@ -26,7 +23,6 @@ class PostsService {
     }
     return update
   }
-
   async delete(id, creatorEmail) {
     let success = await dbContext.Posts.findOneAndDelete({ _id: id, creatorEmail: creatorEmail })
     await dbContext.Comment.deleteMany({ post: id })

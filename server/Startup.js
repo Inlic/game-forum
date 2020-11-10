@@ -7,7 +7,6 @@ import { Auth0Provider } from "@bcwdev/auth0provider";
 
 export default class Startup {
   static ConfigureGlobalMiddleware(app) {
-    // NOTE Configure and Register Middleware
     let whitelist = ["http://localhost:8080"];
     let corsOptions = {
       origin: function (origin, callback) {
@@ -20,7 +19,6 @@ export default class Startup {
     app.use(cors(corsOptions));
     app.use(bp.json({ limit: "50mb" }));
 
-    // NOTE Configures auth0 middleware that is used throughout controllers
     Auth0Provider.configure({
       domain: process.env.AUTH_DOMAIN,
       clientId: process.env.AUTH_CLIENT_ID,
@@ -37,12 +35,10 @@ export default class Startup {
   }
 
   static registerErrorHandlers(app) {
-    // NOTE SEND JSON 404 for any unknown routes
     app.use("/api", (_, res, next) => {
       res.status(404).send({ status: 404, message: "Not Found" });
     });
 
-    // NOTE SEND HTML 404 for any unknown routes
     app.use(
       "*",
       (_, res, next) => {
@@ -51,7 +47,7 @@ export default class Startup {
       },
       express.static(Paths.Public + "404")
     );
-    // NOTE Default Error Handler
+
     app.use((error, req, res, next) => {
       if (!error.status) {
         error.status = 400;
