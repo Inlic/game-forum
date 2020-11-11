@@ -33,8 +33,8 @@ export default class Post {
   }
 
   get activeTemplate() {
-    return `
-    <div class="card bg-swhite shadow m-3">
+    return /*html*/`
+<div class="card bg-swhite shadow m-3">
   <div class="card-header">
     <h4 class="float-right">${this.upvote.length} <i class="fa fa-arrow-up"
         onclick="app.postsController.vote(true,'${this._id}')"></i>
@@ -45,25 +45,26 @@ export default class Post {
   </div>
   <img class="card-img-top"  src="${this.img}" alt="" style="">
   <div class="card-body">
-    <button type="button" class="btn btn-syellow stext float-right" onclick="app.postsController.deletePost('${this._id}')">Delete
-    Post <i class="fa fa-minus-circle"></i> </button>
+    <button type="button" class="btn btn-syellow stext float-right ml-2 mb-1" onclick="app.postsController.deletePost('${this._id}')">Delete
+    Post <i class="fa fa-times"></i> </button>
     <p class="card-text">${this.body}</p>
-    <form class="form-inline my-1" onsubmit="app.commentsController.addComment(event)">
+  </div>
+  <div class="card-footer">
+    <form onsubmit="app.commentsController.addComment(event)">
       <div class="form-group">
-        <input type="text" name="comment" id="comment" class="ml-1 form-control" placeholder="Leave comment..."
-          aria-describedby="helpId">
-          <button type="submit" class="btn btn-blue form-control ml-2 stext"><i class="fa fa-plus-circle"></i> New
-            Comment</button>
+        <textarea name="comment" id="comment" class=" form-control" placeholder="Leave comment..."
+        aria-describedby="helpId"></textarea>
       </div>
+        <button type="submit" class="btn btn-blue form-control stext"><i class="fa fa-plus-circle"></i> New
+        Comment</button>
     </form>
-    <div>
-    <div class="">
-      <button class="btn btn-blue stext" onclick="app.commentsController.sortByDownvote()" style="width: 15%">Comment
-        Sort</button>
-    </div>
-      <ul id="comments">
-      </ul>
-    </div>
+      <div class="my-2">
+        <button class="btn btn-blue stext" onclick="app.commentsController.sortByDownvote()"><i class="fa fa-sort" aria-hidden="true"></i> Sort Comments</button>
+      </div>
+      <div>
+        <div id="comments" class="container-fluid">
+        </div>
+      </div>
   </div>
 </div>
     `

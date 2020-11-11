@@ -34,15 +34,12 @@ class PostsService {
   }
   async deletePost(id) {
     try {
-
-      {
-        let res = await api.delete(`api/posts/${id}`)
-        ProxyState.activePost = null
-        ProxyState.comments = []
-        let found = ProxyState.posts.findIndex(p => p._id == id)
-        ProxyState.posts.splice(found, 1)
-        ProxyState.posts = ProxyState.posts
-      }
+      let res = await api.delete(`api/posts/${id}`)
+      ProxyState.activePost = null
+      ProxyState.comments = []
+      let found = ProxyState.posts.findIndex(p => p._id == id)
+      ProxyState.posts.splice(found, 1)
+      ProxyState.posts = ProxyState.posts
     } catch (error) {
       console.error(error)
     }
