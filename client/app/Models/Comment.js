@@ -16,7 +16,7 @@ export default class Comment {
         <div class="card mb-1">
           <div class="card-header">
           <h5>
-            <button type="button" class="btn btn-syellow float-right stext" onclick="app.commentsController.deleteComment('${this._id}')">Delete Comment  <i class="fa fa-times" aria-hidden="true"></i>
+            <button type="button" class="btn btn-syellow float-right stext" onclick="sweetDeleteComment('${this._id}')">Delete Comment  <i class="fa fa-times" aria-hidden="true"></i>
             </button>
             ${this.creatorEmail} |
             ${this.upvote.length} <i class="fa fa-arrow-up" aria-hidden="true" onclick="app.commentsController.vote(true, '${this._id}')"></i>  ${this.downvote.length} <i class="fa fa-arrow-down" aria-hidden="true" onclick="app.commentsController.vote(false, '${this._id}')"></i>

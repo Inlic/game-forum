@@ -45,7 +45,7 @@ export default class Post {
   </div>
   <img class="card-img-top"  src="${this.img}" alt="" style="">
   <div class="card-body">
-    <button type="button" class="btn btn-syellow stext float-right ml-2 mb-1" onclick="app.postsController.deletePost('${this._id}')">Delete
+    <button type="button" class="btn btn-syellow stext float-right ml-2 mb-1" onclick="sweetDeletePost('${this._id}')">Delete
     Post <i class="fa fa-times"></i> </button>
     <p class="card-text">${this.body}</p>
   </div>
