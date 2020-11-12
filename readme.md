@@ -2,7 +2,13 @@
 
 # About
 
-This was a Hackathon project I worked on with fellow Codeworks students Nehemiah Boone, Samuel Taylor, Kyle Bennion, Jacob Crombie.  The idea behind the Hackathon was to create an application where users could post and comment on posts.  Auth0 was not a required component, but our team felt strongly about adding it in as part of the project.  Since we all shared a passion for mmo-gaming we decided to create a game-forum where users could talk about different topics related to mmos.  This project utilized the Model View Controller application design pattern with Models for posts and comments.  This application was written using vanilla Javascript, HTML, and CSS.  We utilized node.js, express, and mongoDB for the back end.
+This was a Hackathon project I worked on with fellow Codeworks students Nehemiah Boone, Samuel Taylor, Kyle Bennion, Jacob Crombie.  The idea behind the Hackathon was to create an application where users could post and comment on posts.  Auth0 was not a required component, but our team felt strongly about adding it in as part of the project.  Since we all shared a passion for mmo-gaming we decided to create a game-forum where users could talk about different topics related to mmos.  This project utilized the Model View Controller application design pattern with Models for a profile, posts and comments.  This application was a Full-Stack Application written using vanilla Javascript, HTML, and CSS on the front end.  We utilized node.js, express, and mongoDB for the back end.
+
+# UML Diagram
+
+<div>
+  <img class="img-responsive"  style="border: 1px solid black;padding: 10px"  src="UML-Game-Forum.png" />
+</div>
 
 # Auth0 Server Setup
 
